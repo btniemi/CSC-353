@@ -16,7 +16,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $students = 4;
+    $total = 6;
+    $cool = 'cool';
+
+    return view('welcome', [
+        'greeting' => 'CSC353 Students',
+        'students' => $students,
+        'total' => $total,
+        'percent'=> $students / $total * 100,
+        'names' => ['Tom', 'Sandy', 'Brad', 'Janice'],
+        'isCool' => $cool ?? 'not cool',
+        ]);
 });
 
 Route::get('/new page', function () {
