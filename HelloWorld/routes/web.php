@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MyModelController;
 use App\Http\Controllers\NewModelController;
+use App\Http\Controllers\TalkController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,3 +42,5 @@ Route::get('/homework page', function () {
 Route::resource('/mymodel', MyModelController::class);
 
 Route::resource('/newmodel', NewModelController::class);
+
+Route::resource('/talk', TalkController::class);
