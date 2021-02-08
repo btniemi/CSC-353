@@ -14,7 +14,8 @@ class TalkController extends Controller
      */
     public function index()
     {
-        return Talk::all();
+        $talks = Talk::all();
+        return view('talk.index', compact('talks'));
     }
 
     /**
@@ -60,7 +61,7 @@ class TalkController extends Controller
      */
     public function edit(Talk $talk)
     {
-        //
+        return view('talk.edit', compact('talk'));
     }
 
     /**

@@ -36,7 +36,7 @@ Route::get('/new page', function () {
 });
 
 Route::get('/homework page', function () {
-    return "this if my page for homework assignment";
+    return "this is my page for homework assignment";
 });
 
 Route::resource('/mymodel', MyModelController::class);
