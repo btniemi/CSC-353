@@ -50,7 +50,7 @@ class TalkController extends Controller
      */
     public function show(Talk $talk)
     {
-        //
+        return view('talk.show', compact('talk'));
     }
 
     /**
@@ -73,7 +73,10 @@ class TalkController extends Controller
      */
     public function update(Request $request, Talk $talk)
     {
-        //
+        $talk->title = $request->title;
+        $talk->description = $request->description;
+        $talk->save();
+        redirect('/talk/'.$talk->id);
     }
 
     /**
@@ -84,6 +87,7 @@ class TalkController extends Controller
      */
     public function destroy(Talk $talk)
     {
-        //
+        $talk->delete();
+        redirect('/talk/');
     }
 }
