@@ -36,10 +36,14 @@ class TalkController extends Controller
      */
     public function store(Request $request)
     {
-        Talk::create([
-            'title' => $request->title,
-            'description' => $request->description,
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
         ]);
+
+        Talk::create($validated);
+
+        return redirect('/talk');
     }
 
     /**
@@ -73,6 +77,11 @@ class TalkController extends Controller
      */
     public function update(Request $request, Talk $talk)
     {
+        $request->validate([
+            'title' => 'required|max:2',
+            'description' => 'required',
+        ]);
+
         $talk->title = $request->title;
         $talk->description = $request->description;
         $talk->save();

@@ -1,6 +1,15 @@
     <form method="post" action="/talk">
         @csrf
-        Name: <input type="text" name="title" />
-        Description: <textarea name="description"></textarea>
+        <div>
+            Name: <input type="text" name="title" value="{{ old('title') }}"/>
+            @error('title'){{ $message }}@enderror
+        </div>
+
+        <div>
+            Description:
+            <textarea name="description">{{ old('description') }}</textarea>
+            @error('description'){{ $message }}@enderror
+        </div>
+
         <button> Save Talk</button>
     </form>
