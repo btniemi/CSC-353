@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Talk;
 use Illuminate\Http\Request;
+use App\Http\Requests\TalkRequest;
 
 class TalkController extends Controller
 {
@@ -34,14 +35,15 @@ class TalkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TalkRequest $request)
     {
-        $validated = $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required',
-        ]);
+//        $validated = $request->validate([
+//            'title' => 'required|max:255',
+//            'description' => 'required',
+//        ]);
+//        Talk::create($validated);
 
-        Talk::create($validated);
+        Talk::create($request->all());
 
         return redirect('/talk');
     }
@@ -77,15 +79,17 @@ class TalkController extends Controller
      */
     public function update(Request $request, Talk $talk)
     {
-        $request->validate([
-            'title' => 'required|max:2',
-            'description' => 'required',
-        ]);
+//        $request->validate([
+//            'title' => 'required|max:2',
+//            'description' => 'required',
+//        ]);
+//
+//        $talk->title = $request->title;
+//        $talk->description = $request->description;
+//        $talk->save();
 
-        $talk->title = $request->title;
-        $talk->description = $request->description;
-        $talk->save();
-        redirect('/talk/'.$talk->id);
+        $talk->update($request->all());
+        return redirect('/talk/'.$talk->id);
     }
 
     /**
@@ -97,6 +101,6 @@ class TalkController extends Controller
     public function destroy(Talk $talk)
     {
         $talk->delete();
-        redirect('/talk/');
+        return redirect('/talk/');
     }
 }
