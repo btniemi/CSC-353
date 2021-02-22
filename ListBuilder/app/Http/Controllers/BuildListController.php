@@ -42,13 +42,12 @@ class BuildListController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param BuildList $buildList
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(BuildList $buildList)
     {
-        $buildLists = BuildList::all();
-        return view('build_list.show', compact('buildLists'));
+        return view('build_list.show', compact('buildList'));
     }
 
     /**
