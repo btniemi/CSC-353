@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('/list', \App\Http\Controllers\BuildListController::class);
+
+Route::resource('/recipe', \App\Http\Controllers\RecipeController::class);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

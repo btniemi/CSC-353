@@ -13,7 +13,7 @@ class CreateBuildListsTable extends Migration
      */
     public function up()
     {
-        Schema::create('build_lists', function (Blueprint $table) {
+        Schema::create('buildLists', function (Blueprint $table) {
             $table->id();
 
             $table->string('list_type');

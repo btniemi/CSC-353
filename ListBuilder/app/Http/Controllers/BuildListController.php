@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\BuildList;
 
-class build_list extends Controller
+class BuildListController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class build_list extends Controller
      */
     public function index()
     {
-        //
+        $buildLists = BuildList::all();
+        return view('build_list.index', compact('buildLists'));
     }
 
     /**
@@ -23,7 +25,7 @@ class build_list extends Controller
      */
     public function create()
     {
-        //
+        return view('build_list.create');
     }
 
     /**
@@ -45,7 +47,8 @@ class build_list extends Controller
      */
     public function show($id)
     {
-        //
+        $buildLists = BuildList::all();
+        return view('build_list.show', compact('buildLists'));
     }
 
     /**
