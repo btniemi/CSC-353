@@ -30,6 +30,6 @@ class CreateBuildListsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('build_lists');
+        Schema::dropIfExists('buildLists');
     }
 }

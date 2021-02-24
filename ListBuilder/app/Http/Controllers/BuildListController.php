@@ -36,7 +36,8 @@ class BuildListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        BuildList::create($request->all());
+        return redirect();
     }
 
     /**
@@ -53,34 +54,36 @@ class BuildListController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param BuildList $buildList
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(BuildList $buildList)
     {
-        //
+        return view('build_list.edit', compact('buildList'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param BuildList $buildList
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, BuildList $buildList)
     {
-        //
+        $buildList->update($request->all());
+        return redirect('/buildList/'.$buildList->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param BuildList $buildList
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(BuildList $buildList)
     {
-        //
+        $buildList->delete();
+        return redirect('/buildList/');
     }
 }
