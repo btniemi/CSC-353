@@ -14,7 +14,8 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        //
+        $recipes = Recipe::all();
+        return view('recipe.index', compact('recipes'));
     }
 
     /**
@@ -24,7 +25,7 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        //
+        return view('recipe.create');
     }
 
     /**
@@ -35,7 +36,8 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Recipe::create($request->all());
+        return redirect();
     }
 
     /**
@@ -46,7 +48,7 @@ class RecipeController extends Controller
      */
     public function show(Recipe $recipe)
     {
-        //
+        return view('recipe.show', compact('recipe'));
     }
 
     /**
@@ -57,7 +59,7 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        //
+        return view('recipr.edit', compact('recipe'));
     }
 
     /**
@@ -69,7 +71,8 @@ class RecipeController extends Controller
      */
     public function update(Request $request, Recipe $recipe)
     {
-        //
+        $recipe->update($request->all());
+        return redirect('/recipe/'.$recipe->id);
     }
 
     /**
@@ -80,6 +83,7 @@ class RecipeController extends Controller
      */
     public function destroy(Recipe $recipe)
     {
-        //
+        $recipe->delete();
+        return redirect('/recipe/');
     }
 }

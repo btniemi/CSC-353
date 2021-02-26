@@ -72,7 +72,7 @@ class BuildListController extends Controller
     public function update(Request $request, BuildList $buildList)
     {
         $buildList->update($request->all());
-        return redirect('/buildList/'.$buildList->id);
+        return redirect('/list/'.$buildList->id);
     }
 
     /**
@@ -84,6 +84,6 @@ class BuildListController extends Controller
     public function destroy(BuildList $buildList)
     {
         $buildList->delete();
-        return redirect('/buildList/');
+        return redirect('/list/');
     }
 }

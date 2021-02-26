@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Add things to your List
+            Add Things to Your List
         </h2>
     </x-slot>
 
@@ -13,7 +13,7 @@
                         @csrf
                         <div>
                             List Title: <input type="text" name="list_type" value="{{ old('list_type') }}"/>
-                            @error('list_type'){{ $message }}@enderror
+                            @error('list title'){{ $message }}@enderror
                         </div>
 
                         <div>
