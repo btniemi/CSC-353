@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\BuildList;
+use Illuminate\Http\Request;
 
 class BuildListController extends Controller
 {
@@ -37,13 +37,13 @@ class BuildListController extends Controller
     public function store(Request $request)
     {
         BuildList::create($request->all());
-        return redirect();
+        return redierct();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param BuildList $buildList
+     * @param  \App\Models\BuildList  $buildList
      * @return \Illuminate\Http\Response
      */
     public function show(BuildList $buildList)
@@ -54,7 +54,7 @@ class BuildListController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param BuildList $buildList
+     * @param  \App\Models\BuildList  $buildList
      * @return \Illuminate\Http\Response
      */
     public function edit(BuildList $buildList)
@@ -65,8 +65,8 @@ class BuildListController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param BuildList $buildList
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\BuildList  $buildList
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, BuildList $buildList)
@@ -78,7 +78,7 @@ class BuildListController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param BuildList $buildList
+     * @param  \App\Models\BuildList  $buildList
      * @return \Illuminate\Http\Response
      */
     public function destroy(BuildList $buildList)
