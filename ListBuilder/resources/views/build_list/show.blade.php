@@ -11,11 +11,26 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div>
                         <div>
-                            List Title: {{ $buildList->list_type }}
+                            List Title: {{ $buildList->title }}
                         </div>
-                        <div>
-                            List Items: {{ $buidList->item }}
-                        </div>
+                    </div>
+                    <div>
+                        Add item
+                        <form method="post" action="/list-item">
+                            @csrf
+                            <input type="hidden" name="build_list_id" value="{{ $buildList->id }}">
+                            Item: <input name="name">
+                            <button type="submit">Save Item</button>
+                        </form>
+
+                        @foreach($buildList->items as $item)
+                            <div>{{ $item->name }} <form method="post" action="/list-item/{{ $item->id }}">
+                                    @csrf
+                                    @method('delete')
+                                    <button>Delete</button>
+                                </form>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

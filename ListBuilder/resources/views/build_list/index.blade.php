@@ -13,7 +13,7 @@
                     <ul>
                         @foreach($buildLists as $buildList)
                             <li>
-                                <a href="/list/{{ $buildList->id }}/edit">{{ $buildList->list_type }}</a>
+                                <a href="/list/{{ $buildList->id }}/edit">{{ $buildList->title }}</a>
                                 <form method="post" action="/buildList/{{ $buildList->id }}">
                                     @csrf
                                     @method('delete')

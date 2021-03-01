@@ -18,6 +18,8 @@ Route::get('/', function () {
 });
 
 Route::resource('/list', \App\Http\Controllers\BuildListController::class);
+Route::resource('/list-item', \App\Http\Controllers\ItemController::class);
+
 
 Route::resource('/recipe', \App\Http\Controllers\RecipeController::class);
 

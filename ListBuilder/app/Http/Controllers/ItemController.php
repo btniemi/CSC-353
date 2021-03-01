@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BuildList;
+use App\Models\Item;
 use Illuminate\Http\Request;
 
-class BuildListController extends Controller
+class ItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class BuildListController extends Controller
      */
     public function index()
     {
-        $buildLists = BuildList::all();
-        return view('build_list.index', compact('buildLists'));
+        //
     }
 
     /**
@@ -25,7 +24,7 @@ class BuildListController extends Controller
      */
     public function create()
     {
-        return view('build_list.create');
+        //
     }
 
     /**
@@ -36,55 +35,55 @@ class BuildListController extends Controller
      */
     public function store(Request $request)
     {
-        $list = BuildList::create($request->all());
-        return redirect('/list/'.$list->id);
+        $item = Item::create($request->all());
+        return redirect('/list/'.$item->build_list_id);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param $id
+     * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Item $item)
     {
-        $buildList = BuildList::find($id);
-        return view('build_list.show', compact('buildList'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\BuildList  $buildList
+     * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function edit(BuildList $buildList)
+    public function edit(Item $item)
     {
-        return view('build_list.edit', compact('buildList'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BuildList  $buildList
+     * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BuildList $buildList)
+    public function update(Request $request, Item $item)
     {
-        $buildList->update($request->all());
-        return redirect('/list/'.$buildList->id);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BuildList  $buildList
+     * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BuildList $buildList)
+    public function destroy(Item $item)
     {
-        $buildList->delete();
-        return redirect('/list/');
+
+        dd($item);
+        $item->delete();
+        return redirect('/list/'.$item->build_list_id);
     }
 }
