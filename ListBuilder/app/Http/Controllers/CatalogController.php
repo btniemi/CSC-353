@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BuildList;
+use App\Models\Catalog;
 use Illuminate\Http\Request;
 
-class BuildListController extends Controller
+class CatalogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class BuildListController extends Controller
      */
     public function index()
     {
-        $buildLists = BuildList::all();
-        return view('build_list.index', compact('buildLists'));
+        $catalogs = Catalog::all();
+        return view('build_list.index', compact('catalogs'));
     }
 
     /**
@@ -36,55 +36,54 @@ class BuildListController extends Controller
      */
     public function store(Request $request)
     {
-        $list = BuildList::create($request->all());
-        return redirect('/list/'.$list->id);
+        $list = Catalog::create($request->all());
+        return redirect('/catalog/'.$list->id);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param $id
+     * @param  \App\Models\Catalog  $catalog
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Catalog $catalog)
     {
-        $buildList = BuildList::find($id);
-        return view('build_list.show', compact('buildList'));
+        return view('build_list.show', compact('catalog'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\BuildList  $buildList
+     * @param  \App\Models\Catalog  $catalog
      * @return \Illuminate\Http\Response
      */
-    public function edit(BuildList $buildList)
+    public function edit(Catalog $catalog)
     {
-        return view('build_list.edit', compact('buildList'));
+        return view('build_list.edit', compact('catalog'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BuildList  $buildList
+     * @param  \App\Models\Catalog  $catalog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BuildList $buildList)
+    public function update(Request $request, Catalog $catalog)
     {
-        $buildList->update($request->all());
-        return redirect('/list/'.$buildList->id);
+        $catalog->update($request->all());
+        return redirect('/catalog/'.$catalog->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BuildList  $buildList
+     * @param  \App\Models\Catalog  $catalog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BuildList $buildList)
+    public function destroy(Catalog $catalog)
     {
-        $buildList->delete();
-        return redirect('/list/');
+        $catalog->delete();
+        return redirect('/catalog/');
     }
 }

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Your List
+            {{ $catalog->title }}
         </h2>
     </x-slot>
 
@@ -11,19 +11,19 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div>
                         <div>
-                            List Title: {{ $buildList->title }}
+                            List Title: {{ $catalog->title }}
                         </div>
                     </div>
                     <div>
                         Add item
                         <form method="post" action="/list-item">
                             @csrf
-                            <input type="hidden" name="build_list_id" value="{{ $buildList->id }}">
+                            <input type="hidden" name="catalog_id" value="{{ $catalog->id }}">
                             Item: <input name="name">
                             <button type="submit">Save Item</button>
                         </form>
 
-                        @foreach($buildList->items as $item)
+                        @foreach($catalog->items as $item)
                             <div>{{ $item->name }} <form method="post" action="/list-item/{{ $item->id }}">
                                     @csrf
                                     @method('delete')

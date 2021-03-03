@@ -23,7 +23,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     Do you want to create a list or add a new recipe? <br>
-                    <a href="/list">Build a List</a>
+                    <a href="/catalog">Build a List</a>
                     <ul>
                         <a href="/recipe">Add Recipe</a>
                         <ul>

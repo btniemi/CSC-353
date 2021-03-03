@@ -17,8 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/list', \App\Http\Controllers\BuildListController::class);
+Route::get('/catalog1', function () {
+    return 'here';
+});
+
 Route::resource('/list-item', \App\Http\Controllers\ItemController::class);
+Route::resource('/catalog', \App\Http\Controllers\CatalogController::class);
 
 
 Route::resource('/recipe', \App\Http\Controllers\RecipeController::class);

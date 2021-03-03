@@ -36,7 +36,7 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         $item = Item::create($request->all());
-        return redirect('/list/'.$item->build_list_id);
+        return redirect('/catalog/'.$item->catalog_id);
     }
 
     /**
@@ -81,9 +81,7 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-
-        dd($item);
         $item->delete();
-        return redirect('/list/'.$item->build_list_id);
+        return redirect('/catalog/'.$item->catalog_id);
     }
 }

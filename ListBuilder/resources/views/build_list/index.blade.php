@@ -9,15 +9,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <a href="/list/create">Make a new list</a>
+                    <a href="/catalog/create">Make a new list</a>
                     <ul>
-                        @foreach($buildLists as $buildList)
+                        @foreach($catalogs as $catalog)
                             <li>
-                                <a href="/list/{{ $buildList->id }}/edit">{{ $buildList->title }}</a>
-                                <form method="post" action="/buildList/{{ $buildList->id }}">
+                                <a href="/catalog/{{ $catalog->id }}/edit">{{ $catalog->title }}</a>
+                                <form method="post" action="/catalog/{{ $catalog->id }}">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit">Delete List</button>
+                                    <button type="submit">Delete Above List</button>
                                 </form>
                             </li>
                         @endforeach

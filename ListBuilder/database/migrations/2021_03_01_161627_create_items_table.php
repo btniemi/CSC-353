@@ -15,7 +15,7 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('build_list_id')->constrained();
+            $table->foreignId('catalog_id')->constrained()->onDelete('cascade');
 
             $table->string('name');
 
