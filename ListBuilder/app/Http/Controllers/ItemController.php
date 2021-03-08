@@ -47,7 +47,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        dd($item);
+        //
     }
 
     /**
@@ -70,7 +70,9 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        //
+        $item->name=$request->name;
+        $item->save();
+        return redirect()->back();
     }
 
     /**
@@ -81,9 +83,7 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        dd($item);
-        $catalog = $item->catalog->id;
         $item->delete();
-        return redirect('/catalog/'.$catalog);
+        return redirect('/catalog/'.$item->catalog_id);
     }
 }

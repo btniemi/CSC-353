@@ -16,18 +16,25 @@
                     </div>
                     <div>
                         Add item
-                        <form method="post" action="/list-item">
+                        <form method="post" action="/item">
                             @csrf
                             <input type="hidden" name="catalog_id" value="{{ $catalog->id }}">
-                            Item: <input name="name">
+                            Item:<input name="name">
                             <button type="submit">Save Item</button>
                         </form>
 
                         @foreach($catalog->items as $item)
-                            <div>{{ $item->name }} <form method="post" action="/list-item/{{ $item->id }}">
+                            <div>{{ $item->name }}
+                                <form method="post" action="/item/{{ $item->id }}">
+                                    @csrf
+                                    @method('patch')
+                                    <input name="name" type="text" value="{{ $item->name }}">
+                                    <button type="submit">Update</button>
+                                </form>
+                                <form method="post" action="/item/{{ $item->id }}">
                                     @csrf
                                     @method('delete')
-                                    <button>Delete - {{ $item->id }}</button>
+                                    <button>Delete - {{ $item->name }}</button>
                                 </form>
                             </div>
                         @endforeach

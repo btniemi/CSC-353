@@ -48,7 +48,6 @@ class CatalogController extends Controller
      */
     public function show(Catalog $catalog)
     {
-        dd($catalog);
         return view('build_list.show', compact('catalog'));
     }
 
