@@ -27,7 +27,7 @@
                             <div>{{ $item->name }} <form method="post" action="/list-item/{{ $item->id }}">
                                     @csrf
                                     @method('delete')
-                                    <button>Delete</button>
+                                    <button>Delete - {{ $item->id }}</button>
                                 </form>
                             </div>
                         @endforeach

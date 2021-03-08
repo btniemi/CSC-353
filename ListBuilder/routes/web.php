@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/catalog1', function () {
-    return 'here';
-});
-
 Route::resource('/list-item', \App\Http\Controllers\ItemController::class);
 Route::resource('/catalog', \App\Http\Controllers\CatalogController::class);
 

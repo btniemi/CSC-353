@@ -59,7 +59,7 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        return view('recipr.edit', compact('recipe'));
+        return view('recipe.edit', compact('recipe'));
     }
 
     /**

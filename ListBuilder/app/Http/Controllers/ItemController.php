@@ -47,7 +47,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        dd($item);
     }
 
     /**
@@ -81,7 +81,9 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
+        dd($item);
+        $catalog = $item->catalog->id;
         $item->delete();
-        return redirect('/catalog/'.$item->catalog_id);
+        return redirect('/catalog/'.$catalog);
     }
 }
