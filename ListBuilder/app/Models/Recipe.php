@@ -10,4 +10,8 @@ class Recipe extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function ingredients(){
+        return $this->hasMany(Ingredient::class);
+    }
 }
