@@ -35,7 +35,8 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = Ingredient::create($request->all());
+        return redirect('recipe/'.$item->recipe_id);
     }
 
     /**
@@ -69,7 +70,10 @@ class IngredientController extends Controller
      */
     public function update(Request $request, Ingredient $ingredient)
     {
-        //
+        $ingredient->component = $request->component;
+        $ingredient->amount = $request->amount;
+        $ingredient->save();
+        return redirect()->back();
     }
 
     /**
@@ -80,6 +84,7 @@ class IngredientController extends Controller
      */
     public function destroy(Ingredient $ingredient)
     {
-        //
+        $ingredient->delete();
+        return redirect('recipe/'.$ingredient->recipe_id);
     }
 }

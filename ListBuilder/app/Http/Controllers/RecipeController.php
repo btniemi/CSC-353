@@ -36,8 +36,8 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        Recipe::create($request->all());
-        return redirect();
+        $recipe = Recipe::create($request->all());      //not sure if this is correct
+        return redirect('/recipe/'.$recipe->id);
     }
 
     /**

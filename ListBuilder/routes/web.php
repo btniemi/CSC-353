@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::resource('/item', \App\Http\Controllers\ItemController::class);
 Route::resource('/catalog', \App\Http\Controllers\CatalogController::class);
 
-
+Route::resource('/ingredient', \App\Http\Controllers\IngredientController::class);
 Route::resource('/recipe', \App\Http\Controllers\RecipeController::class);
 
 Route::get('/dashboard', function () {
