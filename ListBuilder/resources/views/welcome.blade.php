@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Welcome to ListBuilder. <br>
                     Where you can make, edit, and save lists. <br>
-                    You can also save your favorite recipes and we can help you generate a list of groceries you need to make said recipe. <br>
+                    You can also save your favorite recipes. <br>
                     Lets make some lists!
                 </div>
             </div>

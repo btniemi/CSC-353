@@ -14,9 +14,8 @@
                             @csrf
                             <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
                             Add Ingredient:<input name="component">
-                            <button type="submit">Save Item</button>
                             Add Amount:<input name="amount">
-                            <button type="submit">Save Amount</button>
+                            <button type="submit">Save</button>
                         </form>
                     </div>
                 </div>
@@ -28,33 +27,21 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    Ingredients Items:
+                    Ingredients list per Amount:
                     @foreach($recipe->ingredients as $ingredient)
-                        <div>{{ $ingredient->component }}
+                        <div>{{ $ingredient->component }} - {{ $ingredient->amount }}
                             <form method="post" action="/ingredient/{{ $ingredient->id }}">
                                 @csrf
                                 @method('patch')
                                 <input name="component" type="text" value="{{ $ingredient->component }}">
                                 <button type="submit">Update Ingredient</button>
+                                <input name="amount" type="text" value="{{$ingredient->amount}}">
+                                <button type="submit">Update Amount</button>
                             </form>
                             <form method="post" action="/ingredient/{{ $ingredient->id }}">
                                 @csrf
                                 @method('delete')
                                 <button>Delete - {{ $ingredient->component }}</button>
-                            </form>
-                        </div>
-
-                        <div>{{ $ingredient->amount }}
-                            <form method="post" action="/ingredient/{{$ingredient->id}}">
-                                @csrf
-                                @method('patch')
-                                <input name="amount" type="text" value="{{ $ingredient->amount }}">
-                                <button type="submit">Update Amount</button>
-                            </form>
-                            <form method="post" action="/ingredient/{{$ingredient->id}}">
-                                @csrf
-                                @method('delete')
-                                <button>Delete - {{ $ingredient->amount }}</button>
                             </form>
                         </div>
                     @endforeach
@@ -73,6 +60,5 @@
             </div>
         </div>
     </div>
-
 
 </x-app-layout>

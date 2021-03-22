@@ -32,7 +32,7 @@
                             <form method="post" action="/item/{{ $item->id }}">
                                 @csrf
                                 @method('patch')
-                                <input name="name" type="text" value="{{ $item->name }}">
+                                <input name="name" type="text" value="">
                                 <button type="submit">Update</button>
                             </form>
                             <form method="post" action="/item/{{ $item->id }}">
@@ -57,4 +57,5 @@
             </div>
         </div>
     </div>
+
 </x-app-layout>

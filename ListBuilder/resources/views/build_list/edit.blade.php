@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Edit List Title for {{ $catalog->title }}
+            Would you like to edit List Title for {{ $catalog->title }}?
         </h2>
     </x-slot>
 
@@ -17,7 +17,7 @@
                             @error('title'){{ $message }}@enderror
                         </div>
 
-                        <button type="submit">Save</button>
+                        <button type="submit">No Changes/Save Changes</button>
                     </form>
                 </div>
             </div>

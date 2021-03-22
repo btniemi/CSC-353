@@ -14,9 +14,8 @@
                         <div>
                             List Title: <input type="text" name="title" value="{{ old('title') }}"/>
                             @error('title'){{ $message }}@enderror
+                            <button>Save List</button>
                         </div>
-
-                        <button>Save List</button>
                     </form>
                 </div>
             </div>
