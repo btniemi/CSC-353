@@ -86,4 +86,9 @@ class RecipeController extends Controller
         $recipe->delete();
         return redirect('/recipe/');
     }
+
+    public function unicorn(Recipe $recipe)
+    {
+        return "hello";
+    }
 }
