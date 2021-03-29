@@ -23,12 +23,13 @@
                     Your list of created lists:
                     @foreach($catalogs as $catalog)
                         <li>
-                            <a href="/catalog/{{ $catalog->id }}/edit">{{ $catalog->title }}</a>
+                            <a href="/display/{{ $catalog->id }}">{{ $catalog->title }}</a>
                             <form method="post" action="/catalog/{{ $catalog->id }}">
                                 @csrf
                                 @method('delete')
                                 <button type="submit">Delete Above List</button>
                             </form>
+                            <a href="/catalog/{{$catalog->id}}/edit">Edit {{$catalog->title}}</a>
                         </li>
                     @endforeach
                 </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\RecipeController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +25,8 @@ Route::resource('/catalog', \App\Http\Controllers\CatalogController::class);
 Route::resource('/ingredient', \App\Http\Controllers\IngredientController::class);
 Route::resource('/recipe', \App\Http\Controllers\RecipeController::class);
 
-Route::get("/unicorn/{recipe}", [RecipeController::class, "unicorn"]);
+Route::get('/display/{catalog}', [CatalogController::class, 'display']);
+Route::get("/display1/{recipe}", [RecipeController::class, "display1"]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -86,4 +86,9 @@ class CatalogController extends Controller
         $catalog->delete();
         return redirect('/catalog/');
     }
+
+    public function display(Catalog $catalog)
+    {
+        return view('build_list.display', compact('catalog'));
+    }
 }

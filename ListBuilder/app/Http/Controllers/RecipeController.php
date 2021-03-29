@@ -87,8 +87,8 @@ class RecipeController extends Controller
         return redirect('/recipe/');
     }
 
-    public function unicorn(Recipe $recipe)
+    public function display1(Recipe $recipe)
     {
-        return "hello";
+        return view('recipe.display', compact('recipe'));
     }
 }
