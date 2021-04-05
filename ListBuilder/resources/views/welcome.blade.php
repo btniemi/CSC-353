@@ -24,7 +24,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Do you want to create a list or add a new recipe? <br>
                     <a href="/catalog">Click here to Build a List</a>
-                    <ul>
+                        <ul>
                         <a href="/recipe">Click here to Add a Recipe</a>
                         <ul>
                 </div>

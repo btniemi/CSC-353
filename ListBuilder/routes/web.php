@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return redirect('/register');
+});
+
+Route::get('welcome', function (){
     return view('welcome');
 });
 
